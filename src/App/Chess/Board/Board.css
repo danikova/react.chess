@@ -1,0 +1,34 @@
+.Board-row-wrapper{
+    border: 1px solid black;
+    display: table;
+}
+
+.Board-row{
+    height: var(--tile-size);
+    display: table-row;
+}
+
+.Tile{
+    background: white;
+
+    height: var(--tile-size);
+    width: var(--tile-size);
+
+    display: table-cell;
+}
+
+.Board-row:nth-child(odd) > .Tile:nth-child(even), .Board-row:nth-child(even) > .Tile:nth-child(odd){
+    background: rgb(50, 50, 50);
+}
+
+.figure-base{
+    width: var(--tile-size);
+
+    line-height: var(--tile-size);
+
+    text-align: center;
+
+    font-size: calc(var(--tile-size) * 0.8);
+
+    cursor: pointer;
+}

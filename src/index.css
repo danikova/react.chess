@@ -2,4 +2,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  position: relative;
+
+  --tile-size: 60px;
+  --colCount: 8;
+}
+
+#root{
+  height: 100vh;
+  width: 100vw;
 }
