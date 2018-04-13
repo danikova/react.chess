@@ -1,5 +1,5 @@
 .Board-row-wrapper{
-    border: 1px solid black;
+    border: 1px solid Black;
     display: table;
 }
 
@@ -9,26 +9,17 @@
 }
 
 .Tile{
-    background: white;
+    background: White;
 
     height: var(--tile-size);
     width: var(--tile-size);
+    max-height: var(--tile-size);
+    max-width: var(--tile-size);
 
     display: table-cell;
+    overflow: hidden;
 }
 
 .Board-row:nth-child(odd) > .Tile:nth-child(even), .Board-row:nth-child(even) > .Tile:nth-child(odd){
-    background: rgb(50, 50, 50);
-}
-
-.figure-base{
-    width: var(--tile-size);
-
-    line-height: var(--tile-size);
-
-    text-align: center;
-
-    font-size: calc(var(--tile-size) * 0.8);
-
-    cursor: pointer;
+    background: rgb(150, 150, 150);
 }

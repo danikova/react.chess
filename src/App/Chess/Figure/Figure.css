@@ -1,0 +1,32 @@
+
+.figure-base{
+    text-align: center;
+    width: var(--tile-size);
+    line-height: var(--tile-size);
+    font-size: calc(var(--tile-size) * 0.8);
+    text-shadow: 0 0 10px #6e6e6e80;
+    position: relative;
+    cursor: default;
+}
+
+.figure-base::before{
+    border: 0px solid rgb(100, 100, 100);
+    border-radius: 50%;
+    cursor: pointer;
+    content: " ";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transition: 0.3s;
+}
+
+.figure-base:hover::before{
+    border: 2px solid rgb(100, 100, 100);
+    width: calc(var(--tile-size) * 0.8);
+    height: calc(var(--tile-size) * 0.8);
+}
