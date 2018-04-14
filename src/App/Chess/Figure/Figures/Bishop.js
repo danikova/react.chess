@@ -18,7 +18,21 @@ class WhiteBishop extends White{
 }
 
 var _getValidSteps = function(figureAttrs, boardData){
-    console.log(figureAttrs.color, 'Bishop');
+    var validSteps = initValidSteps(boardData);
+
+    for (let _x = -1; _x <= 1; _x+=2) {
+        for (let _y = -1; _y <= 1; _y+=2) {
+            var bX = figureAttrs.pos.x + _x;
+            var bY = figureAttrs.pos.y + _y;
+            while(field.isEmpty(boardData, bX, bY) || field.isNotEmptyAndNotSame(boardData, bX, bY, figureAttrs)){
+                validSteps[bY][bX] = true;
+                bX += _x;
+                bY += _y;
+            }
+        }
+    }
+
+    return validSteps;
 }
 
 export { BlackBishop, WhiteBishop };
