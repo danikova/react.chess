@@ -19,7 +19,10 @@ class WhiteBishop extends White{
 
 var _getValidSteps = function(figureAttrs, boardData){
     var validSteps = initValidSteps(boardData);
+    return _calculateCrossMoves(validSteps, figureAttrs, boardData);
+}
 
+var _calculateCrossMoves = function(validSteps, figureAttrs, boardData){
     for (let _x = -1; _x <= 1; _x+=2) {
         for (let _y = -1; _y <= 1; _y+=2) {
             var bX = figureAttrs.pos.x + _x;
@@ -31,7 +34,6 @@ var _getValidSteps = function(figureAttrs, boardData){
             }
         }
     }
-
     return validSteps;
 }
 

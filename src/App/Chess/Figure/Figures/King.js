@@ -18,7 +18,19 @@ class WhiteKing extends White{
 }
 
 var _getValidSteps = function(figureAttrs, boardData){
-    console.log(figureAttrs.color, 'King');
+    var validSteps = initValidSteps(boardData);
+
+    for (let _x = -1; _x <= 1; _x++) {
+        for (let _y = -1; _y <= 1; _y++) {
+            var bX = figureAttrs.pos.x + _x;
+            var bY = figureAttrs.pos.y + _y;
+            if(field.isEmpty(boardData, bX, bY) || field.isNotEmptyAndNotSame(boardData, bX, bY, figureAttrs)){
+                validSteps[bY][bX] = true;
+            }
+        }
+    }
+
+    return validSteps;
 }
 
 export { BlackKing, WhiteKing };
