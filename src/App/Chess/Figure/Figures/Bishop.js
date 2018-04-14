@@ -27,10 +27,17 @@ var _calculateCrossMoves = function(validSteps, figureAttrs, boardData){
         for (let _y = -1; _y <= 1; _y+=2) {
             var bX = figureAttrs.pos.x + _x;
             var bY = figureAttrs.pos.y + _y;
-            while(field.isEmpty(boardData, bX, bY) || field.isNotEmptyAndNotSame(boardData, bX, bY, figureAttrs)){
+            var iE = field.isEmpty(boardData, bX, bY);
+            var nEmNNS = field.isNotEmptyAndNotSame(boardData, bX, bY, figureAttrs);
+            while(iE || nEmNNS){
                 validSteps[bY][bX] = true;
                 bX += _x;
                 bY += _y;
+                if(nEmNNS)
+                    break;
+                    
+                iE = field.isEmpty(boardData, bX, bY);
+                nEmNNS = field.isNotEmptyAndNotSame(boardData, bX, bY, figureAttrs);
             }
         }
     }
