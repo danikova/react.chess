@@ -42,7 +42,12 @@ var FigureUnicode = {
 class _FigureBase extends React.Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            pos:{
+                x: this.props.x,
+                y: this.props.y
+            }
+        };
     }
 
     render(){
@@ -54,7 +59,7 @@ class _FigureBase extends React.Component{
     }
 
     _getFigureAttr(){
-        return Object.assign({},this.state);
+        return Object.assign({direction: this.state.color === 'White' ? 1 : -1},this.state);
     }
 
     _getValidSteps(figureAttrs, boardData){

@@ -18,8 +18,36 @@
 
     display: table-cell;
     overflow: hidden;
+
+    position: relative; 
 }
 
 .Board-row:nth-child(odd) > .Tile:nth-child(even), .Board-row:nth-child(even) > .Tile:nth-child(odd){
     background: rgb(150, 150, 150);
+}
+
+.Tile::before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 5px;
+    height: 0;
+    width: 0;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.Tile.valid{
+    cursor: pointer;
+}
+
+.Tile.valid::before{
+    background: #00ff7f36;
+    border: 1px solid #00ff8060;
+    height: calc(var(--tile-size) * 0.9);
+    width: calc(var(--tile-size) * 0.9);
 }

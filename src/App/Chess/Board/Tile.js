@@ -2,11 +2,17 @@ import React from 'react';
 
 class Tile extends React.Component {
     render(){
-        var ActiveFigure = this.props.figureData[this.props.y][this.props.x];
+        var classes = 'Tile' + (this.props.validSteps[this.props.y][this.props.x] ? ' valid' : '');
+        var ActiveFigure = this.props.boardData[this.props.y][this.props.x];
         var figureFn = ActiveFigure ? this.props.figureFn : ActiveFigure;
-        var figureData = ActiveFigure ? <ActiveFigure figureFn={figureFn}/> : ActiveFigure;
+        var figureData = ActiveFigure 
+                            ? <ActiveFigure 
+                                figureFn={figureFn} 
+                                {...this.props}
+                              /> 
+                            : ActiveFigure;
         return(
-            <div className="Tile">
+            <div className={classes}>
                 {figureData}
             </div>
         );

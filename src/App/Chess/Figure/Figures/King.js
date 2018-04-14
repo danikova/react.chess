@@ -1,4 +1,5 @@
-import { Black, White } from './_FigureBase'
+import { Black, White } from './_FigureBase';
+import { field, initValidSteps } from './_getValidStepsHelper';
 
 class BlackKing extends Black{
     constructor(props){
