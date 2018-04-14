@@ -44,4 +44,4 @@ var _calculateCrossMoves = function(validSteps, figureAttrs, boardData){
     return validSteps;
 }
 
-export { BlackBishop, WhiteBishop };
+export { BlackBishop, WhiteBishop, _calculateCrossMoves };

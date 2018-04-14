@@ -46,4 +46,4 @@ var _calculateLineMoves = function(validSteps, figureAttrs, boardData){
     return validSteps;
 }
 
-export { BlackRook, WhiteRook };
+export { BlackRook, WhiteRook, _calculateLineMoves };
