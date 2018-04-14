@@ -12,7 +12,7 @@ class Tile extends React.Component {
                               /> 
                             : ActiveFigure;
         return(
-            <div className={classes}>
+            <div className={classes} onClick={()=>this.props.tileFn(this.props.x, this.props.y)}>
                 {figureData}
             </div>
         );

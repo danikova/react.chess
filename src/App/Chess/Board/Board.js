@@ -9,7 +9,6 @@ class BoardRow extends React.Component{
             let x = index;
             return(
                 <Tile 
-                    onClick={()=>console.log('asd')}
                     key={index} 
                     x={x} 
                     y={y}

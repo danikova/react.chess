@@ -5,16 +5,16 @@ var field = {
     },
 
     isNotEmptyAndSame: (board, x, y, figureAttrs)=>{
-        var empty = field.isEmpty(board, x, y);
-        if(empty)
+        var cell = field._validPos(board, x, y);
+        if(cell === null || cell === true)
             return false;
         var same = field._sameType(board[y][x], figureAttrs);
         return same === true;
     },
 
     isNotEmptyAndNotSame: (board, x, y, figureAttrs)=>{
-        var empty = field.isEmpty(board, x, y);
-        if(empty)
+        var cell = field._validPos(board, x, y);
+        if(cell === null || cell === true)
             return false;
         var same = field._sameType(board[y][x], figureAttrs);
         return same === false;
