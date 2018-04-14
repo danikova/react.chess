@@ -1,9 +1,9 @@
 import React from 'react';
 import Board from './Board/Board'
-import FigureImporter from './Figure/FigureImporter'
+import FigureImporter from './Board/Figure/FigureImporter'
 
 import './Chess.css';
-import './Figure/Figure.css';
+import './Board/Figure/Figure.css';
 
 class Chess extends React.Component {
     constructor(props){
@@ -11,7 +11,7 @@ class Chess extends React.Component {
         this.rowCount = 8;
         this.colCount = 8;
         this.selectedAttrs = undefined;
-        this.whiteIsNext = false;
+        this.whiteIsNext = true;
         this.state = {
             'boardData': this._getBoardData(),
             'validSteps': this._getValidSteps(8, 8)
@@ -75,15 +75,26 @@ class Chess extends React.Component {
 
     _getBoardData(){
         return [
+            this._getMixedRow('White'),
+            this._getPawnRow('White'),
             [null,null,null,null,null,null,null,null],
             [null,null,null,null,null,null,null,null],
-            [null,null,FigureImporter.BlackPawn,FigureImporter.WhiteKing,null,null,null,null],
-            [null,null,null,null,FigureImporter.WhitePawn,null,null,null],
             [null,null,null,null,null,null,null,null],
-            [null,null,null,null,FigureImporter.WhiteKing,null,null,null],
             [null,null,null,null,null,null,null,null],
-            [null,null,null,null,null,null,null,null]
+            this._getPawnRow('Black'),
+            this._getMixedRow('Black')
         ];
+    }
+
+    _getPawnRow(color){
+        return Array.from({length: this.colCount}, ()=>FigureImporter[color+'Pawn']);
+    }
+
+    _getMixedRow(color){
+        var figList = ['Rook','Knight','Bishop','King','Queen','Bishop','Knight','Rook'];
+        return Array.from({length: this.colCount}, ()=>undefined).map((e, i)=>
+            FigureImporter[color+figList[i]]
+        );
     }
 
     _getValidSteps(){
